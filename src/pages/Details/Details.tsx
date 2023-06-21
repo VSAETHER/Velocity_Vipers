@@ -8,6 +8,7 @@ import { AiOutlineCalendar } from "react-icons/ai";
 import { getMovieById } from "../../api/movie";
 import { useParams } from "react-router-dom";
 import { Movie } from "../../models/Movie";
+import {LikeButton} from "../../shared/LikeButton";
 
 export const Details = () => {
   const [movie, setMovie] = useState<null | Movie>(null);
@@ -36,6 +37,7 @@ export const Details = () => {
         </figure>
         <div className="right-block">
           <h2 className="detail-title">{movie.title}</h2>
+          <LikeButton/>
 
           <ul className="detail-list ">
             <li>
