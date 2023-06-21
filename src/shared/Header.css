@@ -1,0 +1,18 @@
+.header{
+    background-color: black;
+}
+
+.title{
+    padding-left: 50px;
+    margin: 0;
+    color: #f3ad21;
+    font-size: xxx-large;
+    text-decoration: none;
+    background: black;
+}
+
+.link{
+    text-decoration: none;
+    color: inherit;
+    background: black;
+}

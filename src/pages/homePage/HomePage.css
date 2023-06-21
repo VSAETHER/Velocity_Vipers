@@ -1,0 +1,55 @@
+.HomeFilm{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    background: black;
+    padding: 0;
+    width: 95vw;
+}
+
+.right-block{
+   
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: black;
+}
+
+
+
+.pagination{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    background: black;
+    
+}
+.buttonPage{
+    color: orange;
+    font-size: 30px;
+    padding: 0px;
+    width: 30px;
+    height: 40px;
+    border: none;
+    margin: 2%;
+    cursor: pointer;
+    background: black;
+}
+
+
+.current{
+    font-size: 40px;
+    padding-bottom: 5px;
+}
+.arrow{
+    cursor: pointer;
+    font-size: 40px;
+    background: black;
+}
+.arrow:hover{
+   font-size: 42px;
+}

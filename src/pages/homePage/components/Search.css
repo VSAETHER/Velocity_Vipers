@@ -1,0 +1,17 @@
+.Search{
+    background: black;
+}
+.Search-input{
+    width: 500px;
+    height: 50px;
+    border-style: none;
+  
+    margin-bottom: 15px;
+    
+    background: rgb(43, 41, 41);
+    border-radius: 20px;
+    color: rgb(255, 213, 0);
+    padding-left: 15px;
+    font-size: x-large;
+    outline: none;
+}
