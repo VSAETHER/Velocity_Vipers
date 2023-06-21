@@ -5,9 +5,9 @@ import "./Details.css";
 import { BiTimeFive } from "react-icons/bi";
 import { AiOutlineCalendar } from "react-icons/ai";
 
-import { getMovieById } from "../../../api/movie";
+import { getMovieById } from "../../api/movie";
 import { useParams } from "react-router-dom";
-import { Movie } from "../../../models/Movie";
+import { Movie } from "../../models/Movie";
 
 export const Details = () => {
   const [movie, setMovie] = useState<null | Movie>(null);

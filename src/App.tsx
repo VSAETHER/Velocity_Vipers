@@ -1,7 +1,7 @@
 import "./App.css";
 import { Header } from "./shared/Header";
 import { HomePage } from "./pages/homePage/HomePage";
-import { Details } from "./pages/homePage/components/Details";
+import { Details } from "./pages/Details/Details";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
