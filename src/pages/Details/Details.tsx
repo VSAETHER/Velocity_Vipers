@@ -51,13 +51,15 @@ export const Details = () => {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
 
-    reviews.push({
+    reviews.unshift({
       id_film: id,
       content: reviewInput,
       id_review: Math.floor(Math.random() * 999999),
       author: nameInput,
       created_at: Date(),
     });
+    setNameInput("");
+    setReviewInput("");
     localStorage.setItem(`reviews${id}`, JSON.stringify(reviews));
     setState(Math.floor(Math.random() * 999999));
   };
@@ -105,11 +107,14 @@ export const Details = () => {
           <p className="detail-synopsis">{movie.overview}</p>
           <form onSubmit={handleSubmit}>
             <label>
+              Name:
               <input
                 type="text"
                 value={nameInput}
                 onChange={handleNameInputChange}
               />
+            </label>
+            <label>
               Review:
               <input
                 type="text"
@@ -119,22 +124,24 @@ export const Details = () => {
             </label>
             <input type="submit" value="Submit" />
           </form>
+          <h1>Reviews</h1>
           {reviews.map((x: any) => (
             <ul>
               <li>{x.author}</li>
               <li>{x.content}</li>
-              <li>{x.created_at.substring(0, 10)}</li>
+              <li>{x.created_at.substring(0, 15)}</li>
               <button onClick={() => removeReview(x.id_review)}>
                 remove review
               </button>
             </ul>
           ))}
-          <ul>
-            review
-            <li>{review[0].author}</li>
-            <li>{review[0].content}</li>
-            <li>{review[0].created_at.substring(0, 10)}</li>
-          </ul>
+          {review.map((review) => (
+            <ul>
+              <li>{review.author}</li>
+              <li>{review.content}</li>
+              <li>{review.created_at.substring(0, 10)}</li>
+            </ul>
+          ))}
         </div>
       </div>
     </main>
