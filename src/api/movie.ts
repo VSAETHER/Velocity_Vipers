@@ -1,6 +1,7 @@
 import axios from "axios";
 import { Movie } from "../models/Movie";
 import { Category } from "../models/category";
+import { Review } from "../models/Review";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 const BASE_URL = "https://api.themoviedb.org/3";
@@ -60,4 +61,15 @@ export const getPages = async (movieOnPage: number, categoryId?: number) => {
     .catch((error) => {
       console.log(error);
     });
+};
+
+
+
+export const getMovieReviews = async (movieId: string | undefined) => {
+	const url = `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${API_KEY}`;
+	try {
+		return axios.get<{ results: Review[] }>(url).then((res) => res.data.results);
+	} catch (err) {
+		console.error(err);
+	}
 };
