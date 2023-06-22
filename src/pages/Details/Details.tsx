@@ -12,7 +12,7 @@ import { Review } from "../../models/Review";
 
 export const Details = () => {
   const [movie, setMovie] = useState<null | Movie>(null);
-  const [review, setReview] = useState<undefined | Review>(undefined);
+  const [review, setReview] = useState<undefined | Review>(undefined);//creation variable pour review
   const { id } = useParams();
   
 
@@ -60,8 +60,11 @@ export const Details = () => {
             ))}
           </ul>
           <p className="detail-synopsis">{movie.overview}</p>
-        <p>{review.content} // j'ai essayé mais ça affiche pas</p>
-        <p>{review.created_at}</p>
+       <ul> 
+        <li>{review.author} // j'ai essayé mais les infos s'affichent pas</li>
+        <li>{review.content}</li>
+        <li>{review.created_at}</li>
+        </ul>
         </div>
       </div>
     </main>
