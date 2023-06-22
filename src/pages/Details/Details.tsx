@@ -43,8 +43,6 @@ export const Details = () => {
         </figure>
         <div className="right-block">
           <h2 className="detail-title">{movie.title}</h2>
-          <LikeButton/>
-
           <ul className="detail-list ">
             <li>
               <AiOutlineCalendar className="AiOutlineCalendar" />
@@ -62,11 +60,14 @@ export const Details = () => {
             ))}
           </ul>
           <p className="detail-synopsis">{movie.overview}</p>
-       <ul> 
-        <li>{review[0].author}</li>
-        <li>{review[0].content}</li>
-        <li>{review[0].created_at}</li>
-        </ul>
+          <div>
+          <ul>
+            <li>{review[0].author}</li>
+            <li>{review[0].content}</li>
+            <li>{review[0].created_at}</li>
+          </ul>
+          <LikeButton/>
+          </div>
         </div>
       </div>
     </main>
