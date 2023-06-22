@@ -127,6 +127,7 @@ export const Details = () => {
               <button onClick={() => removeReview(x.id_review)}>
                 remove review
               </button>
+              <LikeButton/>
             </ul>
           ))}
           <ul>
@@ -134,6 +135,7 @@ export const Details = () => {
             <li>{review[0].author}</li>
             <li>{review[0].content}</li>
             <li>{review[0].created_at.substring(0, 10)}</li>
+            <LikeButton/>
           </ul>
         </div>
       </div>
