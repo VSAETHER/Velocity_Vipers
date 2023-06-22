@@ -61,7 +61,7 @@ export const Details = () => {
           </ul>
           <p className="detail-synopsis">{movie.overview}</p>
        <ul> 
-        <li>{review[0].author} // j'ai essayé mais les infos s'affichent pas</li>
+        <li>{review[0].author}</li>
         <li>{review[0].content}</li>
         <li>{review[0].created_at}</li>
         </ul>
