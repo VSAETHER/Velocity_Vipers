@@ -12,7 +12,7 @@ import { Review } from "../../models/Review";
 
 export const Details = () => {
   const [movie, setMovie] = useState<null | Movie>(null);
-  const [review, setReview] = useState<undefined | Review>(undefined);//creation variable pour review
+  const [review, setReview] = useState<undefined | Review[]>(undefined);//creation variable pour review
   const { id } = useParams();
   
 
@@ -29,7 +29,7 @@ export const Details = () => {
 
   if (movie == null) return <p>Loading...</p>;
   if (review == null) return <p>Loading...</p>; // ajout vérif
-  console.log(review.author);
+  console.log(review[0].author);
 
   return (
     <main className="detail-main">
@@ -61,9 +61,9 @@ export const Details = () => {
           </ul>
           <p className="detail-synopsis">{movie.overview}</p>
        <ul> 
-        <li>{review.author} // j'ai essayé mais les infos s'affichent pas</li>
-        <li>{review.content}</li>
-        <li>{review.created_at}</li>
+        <li>{review[0].author} // j'ai essayé mais les infos s'affichent pas</li>
+        <li>{review[0].content}</li>
+        <li>{review[0].created_at}</li>
         </ul>
         </div>
       </div>

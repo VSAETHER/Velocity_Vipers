@@ -68,7 +68,7 @@ export const getPages = async (movieOnPage: number, categoryId?: number) => {
 export const getMovieReviews = async (movieId: string | undefined) => {
 	const url = `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${API_KEY}`;
 	try {
-		return axios.get<{ results: Review }>(url).then((res) => res.data.results);
+		return axios.get<{ results: Review[] }>(url).then((res) => res.data.results);
 	} catch (err) {
 		console.error(err);
 	}
