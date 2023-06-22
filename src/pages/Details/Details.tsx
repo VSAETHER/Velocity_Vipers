@@ -5,25 +5,31 @@ import "./Details.css";
 import { BiTimeFive } from "react-icons/bi";
 import { AiOutlineCalendar } from "react-icons/ai";
 
-import { getMovieById } from "../../api/movie";
+import { getMovieById, getMovieReviews } from "../../api/movie";
 import { useParams } from "react-router-dom";
 import { Movie } from "../../models/Movie";
+import { Review } from "../../models/Review";
 
 export const Details = () => {
   const [movie, setMovie] = useState<null | Movie>(null);
-
+  const [review, setReview] = useState<undefined | Review>(undefined);
   const { id } = useParams();
+  
 
   useEffect(() => {
     const test = async () => {
       const test = await getMovieById(id);
+      const test2 = await getMovieReviews(id); //(tentative) d'utiliser l'API
       setMovie(test);
+      setReview(test2); // ajout test2
     };
 
     test();
   }, []);
 
   if (movie == null) return <p>Loading...</p>;
+  if (review == null) return <p>Loading...</p>; // ajout vérif
+  console.log(review.author);
 
   return (
     <main className="detail-main">
@@ -54,6 +60,8 @@ export const Details = () => {
             ))}
           </ul>
           <p className="detail-synopsis">{movie.overview}</p>
+        <p>{review.content} // j'ai essayé mais ça affiche pas</p>
+        <p>{review.created_at}</p>
         </div>
       </div>
     </main>
