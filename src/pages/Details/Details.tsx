@@ -9,6 +9,7 @@ import { getMovieById, getMovieReviews } from "../../api/movie";
 import { useParams } from "react-router-dom";
 import { Movie } from "../../models/Movie";
 import { Review } from "../../models/Review";
+import {LikeButton} from "../../shared/LikeButton";
 
 export const Details = () => {
   const [movie, setMovie] = useState<null | Movie>(null);
@@ -87,7 +88,6 @@ export const Details = () => {
         </figure>
         <div className="right-block">
           <h2 className="detail-title">{movie.title}</h2>
-
           <ul className="detail-list ">
             <li>
               <AiOutlineCalendar className="AiOutlineCalendar" />
@@ -133,6 +133,7 @@ export const Details = () => {
               <button onClick={() => removeReview(x.id_review)}>
                 remove review
               </button>
+              <LikeButton/>
             </ul>
           ))}
           {review.map((review) => (
@@ -140,6 +141,7 @@ export const Details = () => {
               <li>{review.author}</li>
               <li>{review.content}</li>
               <li>{review.created_at.substring(0, 10)}</li>
+              <LikeButton/>
             </ul>
           ))}
         </div>
