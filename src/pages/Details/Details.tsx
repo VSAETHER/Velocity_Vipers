@@ -80,12 +80,37 @@ export const Details = () => {
   return (
     <main className="detail-main">
       <div className="details-page">
-        <figure>
-          <img
-            className="detail-poster"
-            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} //????
-          />
-        </figure>
+        <div className="left-container">
+          <figure>
+            <img
+              className="detail-poster"
+              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} //????
+            />
+          </figure>
+          <form onSubmit={handleSubmit}>
+            <label>
+              Name:
+              <input
+                type="text"
+                value={nameInput}
+                onChange={handleNameInputChange}
+              />
+            </label>
+            <br></br>
+            <br></br>
+            <label>
+              Review:
+              <input
+                type="text"
+                value={reviewInput}
+                onChange={handleReviewInputChange}
+              />
+            </label>
+            <br></br>
+            <br></br>
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
         <div className="right-block">
           <h2 className="detail-title">{movie.title}</h2>
           <ul className="detail-list ">
@@ -105,31 +130,17 @@ export const Details = () => {
             ))}
           </ul>
           <p className="detail-synopsis">{movie.overview}</p>
-          <form onSubmit={handleSubmit}>
-            <label>
-              Name:
-              <input
-                type="text"
-                value={nameInput}
-                onChange={handleNameInputChange}
-              />
-            </label>
-            <label>
-              Review:
-              <input
-                type="text"
-                value={reviewInput}
-                onChange={handleReviewInputChange}
-              />
-            </label>
-            <input type="submit" value="Submit" />
-          </form>
+
           <h1>Reviews</h1>
           {reviews.map((x: any) => (
-            <ul>
-              <li>{x.author}</li>
+            <ul className="reviews">
+              <li>
+                <h2>{x.author}</h2>
+              </li>
               <li>{x.content}</li>
+              <br></br>
               <li>{x.created_at.substring(0, 15)}</li>
+              <br></br>
               <button onClick={() => removeReview(x.id_review)}>
                 remove review
               </button>
@@ -137,9 +148,12 @@ export const Details = () => {
             </ul>
           ))}
           {review.map((review) => (
-            <ul>
-              <li>{review.author}</li>
+            <ul className="reviews">
+              <li>
+                <h2>{review.author}</h2>
+              </li>
               <li>{review.content}</li>
+              <br></br>
               <li>{review.created_at.substring(0, 10)}</li>
               <LikeButton/>
             </ul>
